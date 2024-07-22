@@ -5,8 +5,8 @@ FROM mcr.microsoft.com/devcontainers/go:1-1.22-bookworm
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
 # [Optional] Uncomment the next lines to use go get to install anything else you need
-# USER vscode
-# RUN go get -x <your-dependency-or-tool>
+USER vscode
+RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 # USER root
 
 # [Optional] Uncomment this line to install global node packages.
