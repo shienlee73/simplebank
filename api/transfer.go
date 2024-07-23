@@ -8,10 +8,10 @@ import (
 )
 
 type transferRequest struct {
-	FromAccountID int64 `json:"from_account_id" binding:"required",min=1`
-	ToAccountID   int64 `json:"to_account_id" binding:"required",min=1`
-	Amount        int64 `json:"amount" binding:"required",gt=0`
-	Currency      int64 `json:"currency" binding:"required",oneof=USD EUR`
+	FromAccountID int64 `json:"from_account_id" binding:"required,min=1"`
+	ToAccountID   int64 `json:"to_account_id" binding:"required,min=1"`
+	Amount        int64 `json:"amount" binding:"required,gt=0"`
+	Currency      int64 `json:"currency" binding:"required,oneof=USD EUR"`
 }
 
 func (server *Server) transfer(ctx *gin.Context) {
