@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -91,14 +91,14 @@ func TestGetAccountAPI(t *testing.T) {
 			tc.buildStubs(store)
 
 			// start test server and send request
-			Server := NewServer(store)
+			server := NewServer(store)
 			recorder := httptest.NewRecorder()
 
 			url := fmt.Sprintf("/accounts/%d", tc.accountID)
 			request, err := http.NewRequest(http.MethodGet, url, nil)
 			require.NoError(t, err)
 
-			Server.router.ServeHTTP(recorder, request)
+			server.router.ServeHTTP(recorder, request)
 			tc.checkResponse(t, recorder)
 		})
 	}
@@ -114,7 +114,7 @@ func randomAccount() db.Account {
 }
 
 func requireBodyMatchAccount(t *testing.T, body *bytes.Buffer, account db.Account) {
-	data, err := ioutil.ReadAll(body)
+	data, err := io.ReadAll(body)
 	require.NoError(t, err)
 
 	var gotAccount db.Account
