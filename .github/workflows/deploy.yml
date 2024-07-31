@@ -54,4 +54,4 @@ jobs:
           kubectl apply -f eks/deployment.yaml
           kubectl apply -f eks/service.yaml
           kubectl apply -f eks/ingress.yaml
-          kubectl apply -f eks/issure.yaml
+          kubectl apply -f eks/issuer.yaml
