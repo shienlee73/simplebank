@@ -40,10 +40,10 @@ mock:
 	mockgen -package mockdb -destination db/mock/store.go github.com/shienlee73/simplebank/db/sqlc Store
 
 proto:
-	rm -f pb/proto/*.go
-	protoc --go_out=pb --go_opt=paths=source_relative \
+	rm -f pb/*.go
+	protoc --proto_path=proto --go_out=pb --go_opt=paths=source_relative \
     --go-grpc_out=pb --go-grpc_opt=paths=source_relative \
-	--grpc-gateway_out=pb --grpc-gateway_opt=paths=source_relative --grpc-gateway_opt generate_unbound_methods=true \
+	--grpc-gateway_out=pb --grpc-gateway_opt=paths=source_relative \
 	--openapiv2_out=doc/swagger \
     proto/*.proto
 

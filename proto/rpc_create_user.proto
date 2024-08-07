@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pb;
 
-import "proto/user.proto";
+import "user.proto";
 
 option go_package = "github.com/shienlee73/simplebank/pb";
 

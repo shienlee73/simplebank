@@ -12,7 +12,7 @@ import (
 	"github.com/shienlee73/simplebank/api"
 	db "github.com/shienlee73/simplebank/db/sqlc"
 	"github.com/shienlee73/simplebank/gapi"
-	pb "github.com/shienlee73/simplebank/pb/proto"
+	pb "github.com/shienlee73/simplebank/pb"
 	"github.com/shienlee73/simplebank/util"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
