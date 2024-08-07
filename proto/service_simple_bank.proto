@@ -8,7 +8,7 @@ import "proto/rpc_login_user.proto";
 option go_package = "github.com/shienlee73/simplebank/pb";
 
 service SimpleBank {
-    rpc createUser (CreateUserRequest) returns (CreateUserResponse) {}
-    rpc loginUser (LoginUserRequest) returns (LoginUserResponse) {}
+    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+    rpc LoginUser (LoginUserRequest) returns (LoginUserResponse) {}
 }
 

@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SimpleBank_CreateUser_FullMethodName = "/pb.SimpleBank/createUser"
-	SimpleBank_LoginUser_FullMethodName  = "/pb.SimpleBank/loginUser"
+	SimpleBank_CreateUser_FullMethodName = "/pb.SimpleBank/CreateUser"
+	SimpleBank_LoginUser_FullMethodName  = "/pb.SimpleBank/LoginUser"
 )
 
 // SimpleBankClient is the client API for SimpleBank service.
@@ -146,11 +146,11 @@ var SimpleBank_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*SimpleBankServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "createUser",
+			MethodName: "CreateUser",
 			Handler:    _SimpleBank_CreateUser_Handler,
 		},
 		{
-			MethodName: "loginUser",
+			MethodName: "LoginUser",
 			Handler:    _SimpleBank_LoginUser_Handler,
 		},
 	},
