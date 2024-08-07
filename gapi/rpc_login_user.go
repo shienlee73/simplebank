@@ -50,7 +50,7 @@ func (server *Server) LoginUser(ctx context.Context, req *pb.LoginUserRequest) (
 
 	res := &pb.LoginUserResponse{
 		User:                  convertUser(user),
-		SessionID:             session.ID,
+		SessionId:             session.ID,
 		AccessToken:           accessToken,
 		RefreshToken:          refreshToken,
 		AccessTokenExpiresAt:  timestamppb.New(accessPayload.ExpiresAt.Time),
