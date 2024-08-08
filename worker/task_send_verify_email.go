@@ -13,7 +13,7 @@ import (
 const TaskSendVerifyEmail = "task:send_verify_email"
 
 type PayloadSendVerifyEmail struct {
-	Username string `json="username"`
+	Username string `json:"username"`
 }
 
 func (distributor *RedisTaskDistributor) DistributeTaskSendVerifyEmail(
