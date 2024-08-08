@@ -4,8 +4,6 @@ services:
     ports:
       - 8080:8080
       - 9090:9090
-    environment:
-      DB_SOURCE: postgresql://postgres:secret@db:5432/simple_bank?sslmode=disable
     depends_on:
       db:
         condition: service_healthy
@@ -22,3 +20,5 @@ services:
       retries: 5
       start_period: 30s
       timeout: 10s
+  redis:
+    image: redis:7-alpine

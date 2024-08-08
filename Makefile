@@ -3,6 +3,9 @@ DB_URL=postgresql://postgres:secret@${POSTGRES_HOSTNAME}:5432/simple_bank?sslmod
 postgres:
 	docker run --name postgres12 --network bank-network -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:12-alpine
 
+redis:
+	docker run --name redis --network bank-network -p 6379:6379 redis:7-alpine
+
 createdb:
 	docker exec -it postgres12 createdb --username=root --owner=root simple_bank
 
@@ -52,4 +55,4 @@ proto:
 evans:
 	evans --host localhost --port 9090 -r repl
 
-.PHONY: postgres createdb dropdb migrateup migrateup1 migratedown migratedown1 db_docs db_schema sqlc test server mock proto evans
+.PHONY: postgres redis createdb dropdb migrateup migrateup1 migratedown migratedown1 db_docs db_schema sqlc test server mock proto evans
