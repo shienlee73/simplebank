@@ -9,6 +9,13 @@ USER vscode
 RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 RUN go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 RUN go install github.com/golang/mock/mockgen@v1.6.0
+
+RUN apt install -y protobuf-compiler
+RUN go install google.golang.org/protobuf/cmd/protoc-gen-go
+RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+RUN go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
+RUN go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
+RUN go install github.com/rakyll/statik
 # USER root
 
 # [Optional] Uncomment this line to install global node packages.
