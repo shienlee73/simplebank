@@ -12,10 +12,11 @@ var ErrExpiredToken = errors.New("token has invalid claims: token is expired")
 
 type Payload struct {
 	Username string `json:"username"`
+	Role     string `json:"role"`
 	jwt.RegisteredClaims
 }
 
-func NewPayLoad(username string, duration time.Duration) (*Payload, error) {
+func NewPayLoad(username string, role string, duration time.Duration) (*Payload, error) {
 	tokenID, err := uuid.NewRandom()
 	if err != nil {
 		return nil, err
@@ -23,6 +24,7 @@ func NewPayLoad(username string, duration time.Duration) (*Payload, error) {
 
 	payload := &Payload{
 		username,
+		role,
 		jwt.RegisteredClaims{
 			ID:        tokenID.String(),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
